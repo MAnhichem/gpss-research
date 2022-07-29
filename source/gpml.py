@@ -32,7 +32,7 @@ def run_matlab_code(code, verbose=False, jvm=True):
     
     jvm_string = '-nojvm'
     if jvm: jvm_string = ''
-    call = [config.MATLAB_LOCATION, '-nosplash', jvm_string, '-nodisplay']
+    call = [config.LOCAL_MATLAB, '-nosplash', jvm_string, '-nodisplay']
     print call
     
     stdin = open(script_file)
@@ -230,7 +230,7 @@ def order_by_mae(model, kernel_components, X, y, D, figname, skip_kernel_evaluat
     
     code = MATLAB_ORDER_BY_MAE_CODE
     code = code % {'datafile': temp_data_file,
-        'gpml_path': config.GPML_PATH,
+        'gpml_path': config.LOCAL_GPML_PATH,
         'matlab_script_path': matlab_dir,
         'mean_syntax': model.mean.get_gpml_expression(dimensions=D),
         'mean_params': '[ %s ]' % ' '.join(str(p) for p in model.mean.param_vector),
@@ -287,7 +287,7 @@ def component_stats(model, kernel_components, X, y, D, figname, component_order,
     
     code = MATLAB_COMPONENT_STATS_CODE
     code = code % {'datafile': temp_data_file,
-        'gpml_path': config.GPML_PATH,
+        'gpml_path': config.LOCAL_GPML_PATH,
         'matlab_script_path': matlab_dir,
         'mean_syntax': model.mean.get_gpml_expression(dimensions=D),
         'mean_params': '[ %s ]' % ' '.join(str(p) for p in model.mean.param_vector),
@@ -344,7 +344,7 @@ def checking_stats(model, kernel_components, X, y, D, figname, component_order, 
     
     code = MATLAB_CHECKING_STATS_CODE
     code = code % {'datafile': temp_data_file,
-        'gpml_path': config.GPML_PATH,
+        'gpml_path': config.LOCAL_GPML_PATH,
         'matlab_script_path': matlab_dir,
         'mean_syntax': model.mean.get_gpml_expression(dimensions=D),
         'mean_params': '[ %s ]' % ' '.join(str(p) for p in model.mean.param_vector),

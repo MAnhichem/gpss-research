@@ -6,7 +6,7 @@ A set of utilities to maniuplate files on the fear cluster.
           Roger Grosse (rgrosse@mit.edu)
 '''
 
-import pysftp
+# import pysftp
 import config
 import re
 

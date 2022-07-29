@@ -6,7 +6,7 @@ common tasks
 @authors: James Robert Lloyd (jrl44@cam.ac.uk)
 '''
 
-import pysftp # Wraps up various paramiko calls
+# import pysftp # Wraps up various paramiko calls
 from config import * # Various constants such as USERNAME
 from util import timeoutCommand
 import os

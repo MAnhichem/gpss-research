@@ -1,0 +1,592 @@
+50%100%100%
+16%33%50%66%83%100%100%
+16%33%50%66%83%100%100%
+16%33%50%66%83%100%100%
+100%100%
+c]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>.Running experiment:
+description = For debugging,
+data_dir = ../data/debug/,
+max_depth = 4,
+random_order = False,
+k = 1,
+debug = False,
+local_computation = True,
+n_rand = 1,
+sd = 2,
+jitter_sd = 0.1,
+max_jobs = 300,
+verbose = False,
+make_predictions = True,
+skip_complete = False,
+results_dir = ../results/debug/,
+iters = 250,
+base_kernels = SE,
+additive_form = False,
+mean = ff.MeanZero(),
+kernel = ff.NoiseKernel(),
+lik = ff.LikGauss(sf=-np.Inf),
+verbose_results = False,
+random_seed = 1,
+period_heuristic = 5,
+max_period_heuristic = 5,
+subset = True,
+subset_size = 250,
+full_iters = 10,
+bundle_size = 5,
+search_operators = [('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}), ('A', 'B', {'A': 'kernel', 'B': 'base'}), ('A', ('None',), {'A': 'kernel'})],
+score = pl2,
+period_heuristic_type = min,
+stopping_criteria = [],
+improvement_tolerance = 0.1,
+
+Experiment 01-airline
+Output to: ../results/debug/01-airline_result.txt
+
+
+Starting search with this model:
+
+GPModel(mean=MZ, kernel=WN(sf=None), likelihood=GS(sf=-inf))
+
+
+All new results
+
+NLL=910.0 BIC=1834.6 AIC=1826.0 PL2=7.066 GPModel(mean=MZ, kernel=( SE(dim=0, ell=-2.8, sf=-7.3) + WN(sf=5.6) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=6898931843458.0 BIC=13797863686925.8 AIC=13797863686920.1 PL2=53480091809.760 GPModel(mean=MZ, kernel=SE(dim=0, ell=-2.8, sf=-7.4), likelihood=GS(sf=-inf))
+NLL=156791839469.7 BIC=313583678958.9 AIC=313583678947.4 PL2=1215440616.060 GPModel(mean=MZ, kernel=( SE(dim=0, ell=-2.6, sf=-7.3) + SE(dim=0, ell=1.9, sf=3.6) ) , likelihood=GS(sf=-inf))
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.2 AIC=1350.9 PL2=5.217 GPModel(mean=MZ, kernel=( SE(dim=0, ell=-2.8, sf=-7.3) + SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.1 AIC=1350.8 PL2=5.216 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.7, sf=6.0) + SE(dim=0, ell=3.8, sf=5.8) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.1 AIC=1350.8 PL2=5.216 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.1) + SE(dim=0, ell=5.6, sf=5.7) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+Making predictions
+
+Finished file 01-airline
+GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+Determining order of components
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpf82N6i.m) contents : ==========================================
+
+load '/tmp/tmpv989nf.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.8107634710113336 6.2257562712826875 3.705619205831501 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.8107634710113336 6.2257562712826875 ],[ 3.705619205831501 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline';
+
+order_by_mae_reduction(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Plotting decomposition and computing basic stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpaHKCUW.m) contents : ==========================================
+
+load '/tmp/tmpmMCMS6.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.8107634710113336 6.2257562712826875 3.705619205831501 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.8107634710113336 6.2257562712826875 ],[ 3.705619205831501 ] };
+envelope_family_list = { {@covConst},{@covConst} };
+envelope_params_list = { [ 0 ],[ 0 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline';
+idx = [ 1 2 ];
+
+component_stats_and_plots(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, envelope_family_list, envelope_params_list, lik_family, lik_params, figname, idx)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Computing model checking stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpIr1UN4.m) contents : ==========================================
+
+load '/tmp/tmp05r__w.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.8107634710113336 6.2257562712826875 3.705619205831501 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.8107634710113336 6.2257562712826875 ],[ 3.705619205831501 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug/figures/01-airline/01-airline';
+idx = [ 1 2 ];
+plot = true;
+
+checking_stats(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname, idx, plot)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Producing LaTeX document
+Saving to ../analyses/debug/figures/01-airline.tex
+Running experiment:
+description = For debugging changepoints,
+data_dir = ../dat33%66%100%100%
+11%22%33%44%55%66%77%88%100%100%
+5%11%17%23%29%35%41%47%52%58%64%70%76%82%88%94%100%100%
+100%100%
+c]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>a/debug/,
+max_depth = 3,
+random_order = False,
+k = 1,
+debug = False,
+local_computation = True,
+n_rand = 1,
+sd = 2,
+jitter_sd = 0.1,
+max_jobs = 300,
+verbose = False,
+make_predictions = True,
+skip_complete = False,
+results_dir = ../results/debug-changepoint/,
+iters = 250,
+base_kernels = SE,
+additive_form = False,
+mean = ff.MeanZero(),
+kernel = ff.NoiseKernel(),
+lik = ff.LikGauss(sf=-np.Inf),
+verbose_results = False,
+random_seed = 1,
+period_heuristic = 5,
+max_period_heuristic = 5,
+subset = True,
+subset_size = 250,
+full_iters = 10,
+bundle_size = 5,
+search_operators = [('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}), ('A', 'B', {'A': 'kernel', 'B': 'base'}), ('A', ('None',), {'A': 'kernel'}), ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd': 'dimension'})],
+score = pl2,
+period_heuristic_type = min,
+stopping_criteria = [],
+improvement_tolerance = 0.1,
+
+Experiment 01-airline
+Output to: ../results/debug-changepoint/01-airline_result.txt
+
+
+Starting search with this model:
+
+GPModel(mean=MZ, kernel=WN(sf=None), likelihood=GS(sf=-inf))
+
+
+All new results
+
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.1 AIC=1350.8 PL2=5.216 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.1) + SE(dim=0, ell=4.6, sf=5.7) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=648.5 BIC=1335.8 AIC=1313.0 PL2=5.058 GPModel(mean=MZ, kernel=CP(dim=0, loc=1955.4, steep=2.7, ( SE(dim=0, ell=2.6, sf=5.5) + WN(sf=3.1) ) , ( SE(dim=0, ell=2.7, sf=6.1) + WN(sf=4.1) ) ), likelihood=GS(sf=-inf))
+NLL=645.9 BIC=1321.0 AIC=1303.8 PL2=5.030 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=3.0, WN(sf=3.0), WN(sf=4.0)) + SE(dim=0, ell=2.8, sf=6.1) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=896.8 BIC=1813.0 AIC=1801.5 PL2=6.967 GPModel(mean=MZ, kernel=CP(dim=0, loc=1953.3, steep=4.5, WN(sf=5.1), WN(sf=5.8)), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=650.1 BIC=1348.7 AIC=1320.1 PL2=5.078 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=3.0, WN(sf=3.0), WN(sf=4.0)) + CP(dim=0, loc=1956.3, steep=2.3, SE(dim=0, ell=2.1, sf=5.4), SE(dim=0, ell=2.8, sf=6.1)) ) , likelihood=GS(sf=-inf))
+NLL=648.4 BIC=1335.6 AIC=1312.7 PL2=5.057 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1954.0, steep=4.4, WN(sf=3.0), WN(sf=4.0)) + SE(dim=0, ell=2.4, sf=-0.0) + SE(dim=0, ell=2.8, sf=6.2) ) , likelihood=GS(sf=-inf))
+NLL=645.9 BIC=1335.6 AIC=1309.8 PL2=5.042 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=3.0, CP(dim=0, loc=1957.1, steep=1.2, WN(sf=3.0), WN(sf=3.1)), WN(sf=4.0)) + SE(dim=0, ell=2.8, sf=6.1) ) , likelihood=GS(sf=-inf))
+NLL=644.7 BIC=1328.4 AIC=1305.5 PL2=5.029 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=2.9, ( SE(dim=0, ell=5.5, sf=3.5) + WN(sf=2.9) ) , WN(sf=3.9)) + SE(dim=0, ell=2.4, sf=5.8) ) , likelihood=GS(sf=-inf))
+NLL=641.1 BIC=1326.0 AIC=1300.3 PL2=5.005 GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=3.0, WN(sf=3.0), CP(dim=0, loc=1957.4, steep=3.2, WN(sf=3.7), WN(sf=4.2))) + SE(dim=0, ell=2.8, sf=6.1) ) , likelihood=GS(sf=-inf))
+
+Making predictions
+
+Finished file 01-airline
+GPModel(mean=MZ, kernel=( CP(dim=0, loc=1953.8, steep=3.0, WN(sf=3.0), CP(dim=0, loc=1957.4, steep=3.2, WN(sf=3.7), WN(sf=4.2))) + SE(dim=0, ell=2.8, sf=6.1) ) , likelihood=GS(sf=-inf))
+Determining order of components
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmp3zhl0G.m) contents : ==========================================
+
+load '/tmp/tmputl8IZ.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covChangePointMultiD, {1, {@covNoise}, {@covChangePointMultiD, {1, {@covNoise}, {@covNoise}}}}}, {@covSEiso}}};
+kernel_params = [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 1957.3955126981248 3.163399578717934 3.683370483633223 4.201216107035757 2.8392762508930223 6.133472199289897 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covZero}, {@covNoise}}}}},{@covSEiso} };
+kernel_params_list = { [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 3.683370483633223 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 4.201216107035757 ],[ 2.8392762508930223 6.133472199289897 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline';
+
+order_by_mae_reduction(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Plotting decomposition and computing basic stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmplI1KNM.m) contents : ==========================================
+
+load '/tmp/tmpiL3LxG.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covChangePointMultiD, {1, {@covNoise}, {@covChangePointMultiD, {1, {@covNoise}, {@covNoise}}}}}, {@covSEiso}}};
+kernel_params = [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 1957.3955126981248 3.163399578717934 3.683370483633223 4.201216107035757 2.8392762508930223 6.133472199289897 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covZero}, {@covNoise}}}}},{@covSEiso} };
+kernel_params_list = { [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 3.683370483633223 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 4.201216107035757 ],[ 2.8392762508930223 6.133472199289897 ] };
+envelope_family_list = { {@covChangePointMultiD, {1, {@covConst}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covConst}, {@covZero}}}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covZero}, {@covConst}}}}},{@covConst} };
+envelope_params_list = { [ 1953.7799709397077 3.0368589767399183 0.0 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.1633995787179.33%66%100%100%
+11%22%33%44%55%66%77%88%100%100%
+11%22%33%44%55%66%77%88%100%100%
+100%100%
+c]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>34 0.0 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 0.0 ],[ 0 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline';
+idx = [ 4 1 2 3 ];
+
+component_stats_and_plots(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, envelope_family_list, envelope_params_list, lik_family, lik_params, figname, idx)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Computing model checking stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpBxtF8m.m) contents : ==========================================
+
+load '/tmp/tmpWA70e3.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covChangePointMultiD, {1, {@covNoise}, {@covChangePointMultiD, {1, {@covNoise}, {@covNoise}}}}}, {@covSEiso}}};
+kernel_params = [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 1957.3955126981248 3.163399578717934 3.683370483633223 4.201216107035757 2.8392762508930223 6.133472199289897 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covNoise}, {@covZero}}}}},{@covChangePointMultiD, {1, {@covZero}, {@covChangePointMultiD, {1, {@covZero}, {@covNoise}}}}},{@covSEiso} };
+kernel_params_list = { [ 1953.7799709397077 3.0368589767399183 2.9700347468558874 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 3.683370483633223 ],[ 1953.7799709397077 3.0368589767399183 1957.3955126981248 3.163399578717934 4.201216107035757 ],[ 2.8392762508930223 6.133472199289897 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changepoint/figures/01-airline/01-airline';
+idx = [ 4 1 2 3 ];
+plot = true;
+
+checking_stats(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname, idx, plot)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Producing LaTeX document
+Saving to ../analyses/debug-changepoint/figures/01-airline.tex
+Running experiment:
+description = For debugging changewindows,
+data_dir = ../data/debug/,
+max_depth = 3,
+random_order = False,
+k = 1,
+debug = False,
+local_computation = True,
+n_rand = 1,
+sd = 2,
+jitter_sd = 0.1,
+max_jobs = 300,
+verbose = False,
+make_predictions = True,
+skip_complete = False,
+results_dir = ../results/debug-changewindow/,
+iters = 250,
+base_kernels = SE,
+additive_form = False,
+mean = ff.MeanZero(),
+kernel = ff.NoiseKernel(),
+lik = ff.LikGauss(sf=-np.Inf),
+verbose_results = False,
+random_seed = 1,
+period_heuristic = 5,
+max_period_heuristic = 5,
+subset = True,
+subset_size = 250,
+full_iters = 10,
+bundle_size = 5,
+search_operators = [('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}), ('A', 'B', {'A': 'kernel', 'B': 'base'}), ('A', ('None',), {'A': 'kernel'}), ('A', ('CW', 'd', 'A'), {'A': 'kernel', 'd': 'dimension'})],
+score = pl2,
+period_heuristic_type = min,
+stopping_criteria = [],
+improvement_tolerance = 0.1,
+
+Experiment 01-airline
+Output to: ../results/debug-changewindow/01-airline_result.txt
+
+
+Starting search with this model:
+
+GPModel(mean=MZ, kernel=WN(sf=None), likelihood=GS(sf=-inf))
+
+
+All new results
+
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.1 AIC=1350.8 PL2=5.216 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.1) + SE(dim=0, ell=6.1, sf=5.7) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+All new results
+
+NLL=910.0 BIC=1824.9 AIC=1822.0 PL2=7.058 GPModel(mean=MZ, kernel=WN(sf=5.6), likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1365.1 AIC=1350.8 PL2=5.216 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.1) + SE(dim=0, ell=12.3, sf=5.7) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+NLL=668.8 BIC=1371.6 AIC=1351.5 PL2=5.211 GPModel(mean=MZ, kernel=( CW(dim=0, loc=1955.3, steep=1.9, width=0.7, WN(sf=3.7), WN(sf=3.6)) + SE(dim=0, ell=2.8, sf=6.2) ) , likelihood=GS(sf=-inf))
+NLL=670.4 BIC=1355.5 AIC=1346.9 PL2=5.209 GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+
+Making predictions
+
+Finished file 01-airline
+GPModel(mean=MZ, kernel=( SE(dim=0, ell=2.8, sf=6.2) + WN(sf=3.7) ) , likelihood=GS(sf=-inf))
+Determining order of components
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpjn_QoS.m) contents : ==========================================
+
+load '/tmp/tmpl5_ZPn.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.810764242904617 6.225757569958112 3.705619285343503 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.810764242904617 6.225757569958112 ],[ 3.705619285343503 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline';
+
+order_by_mae_reduction(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Plotting decomposition and computing basic stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmptebzKv.m) contents : ==========================================
+
+load '/tmp/tmpvCeb3t.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.810764242904617 6.225757569958112 3.7.
+----------------------------------------------------------------------
+Ran 3 tests in 440.302s
+
+OK
+05619285343503 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.810764242904617 6.225757569958112 ],[ 3.705619285343503 ] };
+envelope_family_list = { {@covConst},{@covConst} };
+envelope_params_list = { [ 0 ],[ 0 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline';
+idx = [ 1 2 ];
+
+component_stats_and_plots(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, envelope_family_list, envelope_params_list, lik_family, lik_params, figname, idx)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Computing model checking stats
+Saving to: /mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline
+['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
+
+Script file (/tmp/tmpwnwxAI.m) contents : ==========================================
+
+load '/tmp/tmpJ3Tnop.mat'  % Load the data, it should contain X and y.
+X = double(X);
+y = double(y);
+
+addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
+addpath(genpath('/mnt/lustre/users/anhichem/programming/gpss-research/source/matlab'));
+
+mean_family = {@meanZero};
+mean_params = [  ];
+kernel_family = {@covSum, {{@covSEiso}, {@covNoise}}};
+kernel_params = [ 2.810764242904617 6.225757569958112 3.705619285343503 ];
+lik_family = {@likDelta};
+lik_params = [  ];
+kernel_family_list = { {@covSEiso},{@covNoise} };
+kernel_params_list = { [ 2.810764242904617 6.225757569958112 ],[ 3.705619285343503 ] };
+figname = '/mnt/lustre/users/anhichem/programming/gpss-research/analyses/debug-changewindow/figures/01-airline/01-airline';
+idx = [ 1 2 ];
+plot = true;
+
+checking_stats(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname, idx, plot)
+exit();
+
+Std out : ==========================================
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2021 The MathWorks, Inc.
+             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
+                                July 1, 2021
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
+Producing LaTeX document
+Saving to ../analyses/debug-changewindow/figures/01-airline.tex
