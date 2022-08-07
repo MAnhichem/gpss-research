@@ -26,4 +26,4 @@ import experiment
 # RUN EXPERIMENT
 #==============================================================================
 os.chdir(run_experiment_path)
-experiment.run_experiment_file('test_1d.py')
+experiment.run_experiment_file('test_1d_2.py')
