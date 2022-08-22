@@ -70,8 +70,8 @@ plt.xlabel('x')
 plt.ylabel('-Cp')
 plt.plot()
 
-# Save as a .mat file
-from scipy.io import savemat
-mdic = {"X": X_t_yfix, "y": Y_t_yfix}
-savemat("../data/test_1d.mat", mdic)
+# # Save as a .mat file
+# from scipy.io import savemat
+# mdic = {"X": X_t_yfix, "y": Y_t_yfix}
+# savemat("../data/test_1d.mat", mdic)
 

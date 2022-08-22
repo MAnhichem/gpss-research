@@ -1,0 +1,1 @@
+mean=MZ, kernel=CP(dim=0, loc=391.2, steep=-0.1, ( ( Lin(dim=0, loc=135.8, sf=-4.6) + WN(sf=-2.1) )  x Lin(dim=0, loc=569.4, sf=-6.1) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
