@@ -27,6 +27,6 @@ import postprocessing
 #==============================================================================
 os.chdir(run_experiment_path)
 experiment.run_experiment_file('test_1d_2.py')
-postprocessing.make_all_1d_figures(['./results/'], '/users/anhichem/sharedscratch/programming/gpss-research/source/results/figures/',
-                                   rescale=False, data_folder='./data/', skip_kernel_evaluation=False)
+postprocessing.make_all_1d_figures(['./results/'], '/users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/',
+                                   rescale=False, data_folder='./data/', skip_kernel_evaluation=False, all_depths=True)
 
