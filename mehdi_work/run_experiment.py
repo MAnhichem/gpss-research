@@ -21,9 +21,12 @@ import_experiment_path = working_path+'/gpss-research/source/'
 import sys
 sys.path.append(import_experiment_path)
 import experiment
-
+import postprocessing
 #==============================================================================
 # RUN EXPERIMENT
 #==============================================================================
 os.chdir(run_experiment_path)
 experiment.run_experiment_file('test_1d_2.py')
+postprocessing.make_all_1d_figures(['./results/'], '/users/anhichem/sharedscratch/programming/gpss-research/source/results/figures/',
+                                   rescale=False, data_folder='./data/', skip_kernel_evaluation=False)
+
