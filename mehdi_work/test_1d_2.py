@@ -1,6 +1,6 @@
 Experiment(description='Test with 1D data, inspired by Duvenaud example',
            data_dir='./data/',
-           max_depth=3, 
+           max_depth=10, 
            random_order=False,
            k=1,
            debug=False, 
