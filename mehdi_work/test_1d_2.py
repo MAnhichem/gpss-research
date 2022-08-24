@@ -1,6 +1,6 @@
 Experiment(description='Test with 1D data, inspired by Duvenaud example',
            data_dir='./data/',
-           max_depth=10, 
+           max_depth=4, 
            random_order=False,
            k=1,
            debug=False, 
@@ -27,8 +27,7 @@ Experiment(description='Test with 1D data, inspired by Duvenaud example',
            kernel='ff.NoiseKernel()', # Starting kernel
            lik='ff.LikGauss(sf=-np.Inf)', # Starting likelihood 
            score='bic',
-        #    search_operators=[('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}),
-        #                      ('A', 'B', {'A': 'kernel', 'B': 'base'}),
-        #                      ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'}),
-        #                      ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
-           search_operators = None)
+           search_operators=[('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}),
+                             ('A', 'B', {'A': 'kernel', 'B': 'base'}),
+                             ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'}),
+                             ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
