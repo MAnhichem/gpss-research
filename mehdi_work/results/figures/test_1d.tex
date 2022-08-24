@@ -73,10 +73,10 @@ The raw data and full model posterior with extrapolations are shown in figure~\r
 \label{fig:rawandfit}
 \end{figure}
 
-The structure search algorithm has identified four additive components in the data.
-The  first 2 additive components explain 96.1\% of the variation in the data as shown by the coefficient of determination ($R^2$) values in table~\ref{table:stats}.
+The structure search algorithm has identified five additive components in the data.
+The  first additive component explains 91.7\% of the variation in the data as shown by the coefficient of determination ($R^2$) values in table~\ref{table:stats}.
 The  first 3 additive components explain 100.0\% of the variation in the data.
-After the first 2 components the cross validated mean absolute error (MAE) does not decrease by more than 0.1\%.
+After the first component the cross validated mean absolute error (MAE) does not decrease by more than 0.1\%.
 This suggests that subsequent terms are modelling very short term trends, uncorrelated noise or are artefacts of the model or search procedure.
 Short summaries of the additive components are as follows:
 \begin{itemize}
@@ -89,6 +89,8 @@ Short summaries of the additive components are as follows:
 
   \item \input{test_1d/test_1d_4_short_description.tex} 
 
+  \item \input{test_1d/test_1d_5_short_description.tex} 
+
 \end{itemize}
 
 \begin{table}[htb]
@@ -100,13 +102,15 @@ Short summaries of the additive components are as follows:
 \hline
 - & - & - & - & 0.74 & -\\
 
-1 & 80.6 & 80.6 & 80.6 & 0.12 & 84.2\\
+1 & 91.7 & 91.7 & 91.7 & 0.09 & 88.2\\
 
-2 & 96.1 & 15.6 & 80.1 & 0.07 & 42.6\\
+2 & 91.7 & -0.0 & -0.0 & 0.09 & 0.0\\
 
-3 & 100.0 & 3.9 & 100.0 & 0.07 & 0.0\\
+3 & 100.0 & 8.3 & 100.0 & 0.09 & 0.0\\
 
-4 & 100.0 & 0.0 & 100.0 & 0.07 & 0.0\\
+4 & 100.0 & 0.0 & 0.0 & 0.09 & 0.0\\
+
+5 & 100.0 & 0.0 & 99.3 & 0.09 & -0.0\\
 
 \hline
 \end{tabular}
@@ -122,7 +126,7 @@ The model is fit using the full data and the MAE values are calculated using thi
 \end{table}
 
 Model checking statistics are summarised in table~\ref{table:check} in section~\ref{sec:check}.
-These statistics have revealed highly statistically significant discrepancies between the data and model in component 3.
+These statistics have revealed highly statistically significant discrepancies between the data and model in component 5.
 
 The rest of the document is structured as follows.
 In section~\ref{sec:discussion} the forms of the additive components are described and their posterior distributions are displayed.
@@ -132,12 +136,12 @@ Section~\ref{sec:check} discusses model checking statistics, with plots showing 
 \section{Detailed discussion of additive components}
 \label{sec:discussion}
 
-\subsection{Component 1 : A quadratic polynomial. This function applies until  392}
+\subsection{Component 1 : A cubic polynomial}
 
 \input{test_1d/test_1d_1_description.tex}
 
-This component explains 80.6\% of the total variance.
-The addition of this component reduces the cross validated MAE by 84.2\% from 0.7 to 0.1.
+This component explains 91.7\% of the total variance.
+The addition of this component reduces the cross validated MAE by 88.2\% from 0.7 to 0.1.
 
 
 \begin{figure}[H]
@@ -164,13 +168,13 @@ The addition of this component reduces the cross validated MAE by 84.2\% from 0.
 \label{fig:comp1}
 \end{figure}
 
-\subsection{Component 2 : A very smooth monotonically increasing function. This function applies from  392 onwards}
+\subsection{Component 2 : A quadratic polynomial}
 
 \input{test_1d/test_1d_2_description.tex}
 
-This component explains 80.1\% of the residual variance; this increases the total variance explained from 80.6\% to 96.1\%.
-The addition of this component reduces the cross validated MAE by 42.60\% from 0.12 to 0.07.
-
+This component explains -0.0\% of the residual variance; this reduces the total variance explained from 91.7\% to 91.7\%.
+The addition of this component reduces the cross validated MAE by 0.00\% from 0.09 to 0.09.
+This component neither explains residual variance nor improves MAE and therefore is likely to be an artefact of the model or search procedure.
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -196,12 +200,12 @@ The addition of this component reduces the cross validated MAE by 42.60\% from 0
 \label{fig:comp2}
 \end{figure}
 
-\subsection{Component 3 : Uncorrelated noise with quadraticly varying standard deviation. This function applies until  392}
+\subsection{Component 3 : Uncorrelated noise. This function applies until  467}
 
 \input{test_1d/test_1d_3_description.tex}
 
-This component explains 100.0\% of the residual variance; this increases the total variance explained from 96.1\% to 100.0\%.
-The addition of this component reduces the cross validated MAE by 0.00\% from 0.07 to 0.07.
+This component explains 100.0\% of the residual variance; this increases the total variance explained from 91.7\% to 100.0\%.
+The addition of this component reduces the cross validated MAE by 0.00\% from 0.09 to 0.09.
 This component explains residual variance but does not improve MAE which suggests that this component describes very short term patterns, uncorrelated noise or is an artefact of the model or search procedure.
 
 \begin{figure}[H]
@@ -228,13 +232,13 @@ This component explains residual variance but does not improve MAE which suggest
 \label{fig:comp3}
 \end{figure}
 
-\subsection{Component 4 : Uncorrelated noise with linearly decreasing standard deviation. This function applies until  392}
+\subsection{Component 4 : This simple AI is not capable of describing the component whos python representation is RQKernel(dimension=0, lengthscale=9.88367103829, sf=-22.8286542403, alpha=0.124422886868). This function applies from  467 onwards}
 
 \input{test_1d/test_1d_4_description.tex}
 
-This component explains 100.0\% of the residual variance; this increases the total variance explained from 100.0\% to 100.0\%.
-The addition of this component reduces the cross validated MAE by 0.00\% from 0.07 to 0.07.
-This component explains residual variance but does not improve MAE which suggests that this component describes very short term patterns, uncorrelated noise or is an artefact of the model or search procedure.
+This component explains 0.0\% of the residual variance; this increases the total variance explained from 100.0\% to 100.0\%.
+The addition of this component reduces the cross validated MAE by 0.00\% from 0.09 to 0.09.
+This component neither explains residual variance nor improves MAE and therefore is likely to be an artefact of the model or search procedure.
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -246,6 +250,38 @@ This component explains residual variance but does not improve MAE which suggest
 \end{tabular}
 \caption{Pointwise posterior of component 4 (left) and the posterior of the cumulative sum of components with data (right)}
 \label{fig:comp4}
+\end{figure}
+
+\begin{figure}[H]
+\newcommand{\wmgd}{0.5\columnwidth}
+\newcommand{\hmgd}{3.0cm}
+\newcommand{\mdrd}{test_1d}
+\newcommand{\mbm}{\hspace{-0.3cm}}
+\begin{tabular}{cc}
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_4_anti_cum}
+\end{tabular}
+\caption{Pointwise posterior of residuals after adding component 4}
+\label{fig:comp4}
+\end{figure}
+
+\subsection{Component 5 : A linearly increasing function}
+
+\input{test_1d/test_1d_5_description.tex}
+
+This component explains 99.3\% of the residual variance; this increases the total variance explained from 100.0\% to 100.0\%.
+The addition of this component increases the cross validated MAE by 0.00\% from 0.09 to 0.09.
+This component explains residual variance but does not improve MAE which suggests that this component describes very short term patterns, uncorrelated noise or is an artefact of the model or search procedure.
+
+\begin{figure}[H]
+\newcommand{\wmgd}{0.5\columnwidth}
+\newcommand{\hmgd}{3.0cm}
+\newcommand{\mdrd}{test_1d}
+\newcommand{\mbm}{\hspace{-0.3cm}}
+\begin{tabular}{cc}
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5_cum}
+\end{tabular}
+\caption{Pointwise posterior of component 5 (left) and the posterior of the cumulative sum of components with data (right)}
+\label{fig:comp5}
 \end{figure}
 
 \section{Extrapolation}
@@ -270,7 +306,7 @@ The plot on the right displays three random samples from the posterior.
 Below are descriptions of the modelling assumptions associated with each additive component and how they affect the predictive posterior.
 Plots of the pointwise posterior and samples from the posterior are also presented, showing extrapolations from each component and the cuulative sum of components.
 
-\subsection{Component 1 : A quadratic polynomial. This function applies until  392}
+\subsection{Component 1 : A cubic polynomial}
 
 \input{test_1d/test_1d_1_extrap_description.tex}
 
@@ -287,7 +323,7 @@ Plots of the pointwise posterior and samples from the posterior are also present
 \label{fig:extrap1}
 \end{figure}
 
-\subsection{Component 2 : A very smooth monotonically increasing function. This function applies from  392 onwards}
+\subsection{Component 2 : A quadratic polynomial}
 
 \input{test_1d/test_1d_2_extrap_description.tex}
 
@@ -304,7 +340,7 @@ Plots of the pointwise posterior and samples from the posterior are also present
 \label{fig:extrap2}
 \end{figure}
 
-\subsection{Component 3 : Uncorrelated noise with quadraticly varying standard deviation. This function applies until  392}
+\subsection{Component 3 : Uncorrelated noise. This function applies until  467}
 
 \input{test_1d/test_1d_3_extrap_description.tex}
 
@@ -321,7 +357,7 @@ Plots of the pointwise posterior and samples from the posterior are also present
 \label{fig:extrap3}
 \end{figure}
 
-\subsection{Component 4 : Uncorrelated noise with linearly decreasing standard deviation. This function applies until  392}
+\subsection{Component 4 : This simple AI is not capable of describing the component whos python representation is RQKernel(dimension=0, lengthscale=9.88367103829, sf=-22.8286542403, alpha=0.124422886868). This function applies from  467 onwards}
 
 \input{test_1d/test_1d_4_extrap_description.tex}
 
@@ -336,6 +372,23 @@ Plots of the pointwise posterior and samples from the posterior are also present
 \end{tabular}
 \caption{Posterior of component 4 (top) and cumulative sum of components (bottom) with extrapolation. Mean and pointwise variance (left) and three random samples from the posterior distribution (right).}
 \label{fig:extrap4}
+\end{figure}
+
+\subsection{Component 5 : A linearly increasing function}
+
+\input{test_1d/test_1d_5_extrap_description.tex}
+
+\begin{figure}[H]
+\newcommand{\wmgd}{0.5\columnwidth}
+\newcommand{\hmgd}{3.0cm}
+\newcommand{\mdrd}{test_1d}
+\newcommand{\mbm}{\hspace{-0.3cm}}
+\begin{tabular}{cc}
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5_extrap} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5_sample} \\
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5_cum_extrap} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_5_cum_sample}
+\end{tabular}
+\caption{Posterior of component 5 (top) and cumulative sum of components (bottom) with extrapolation. Mean and pointwise variance (left) and three random samples from the posterior distribution (right).}
+\label{fig:extrap5}
 \end{figure}
 
 \section{Model checking}
@@ -358,13 +411,15 @@ $p$-values near 0 indicate that the test statistic was larger in magnitude under
 \bf{\#} & {min} & {min loc} & {max} & {max loc} & {max} & {min}\\
 \hline
 
-1 & \textcolor{gray}{0.510} & \textcolor{gray}{0.473} & \textcolor{gray}{0.679} & \textcolor{gray}{0.515} & \textcolor{gray}{0.848} & \textcolor{gray}{0.261}\\
+1 & \textcolor{gray}{0.916} & \textcolor{gray}{0.210} & \textcolor{gray}{0.460} & \textcolor{gray}{0.671} & \textcolor{gray}{0.882} & \textcolor{gray}{0.638}\\
 
-2 & \textcolor{gray}{0.792} & \textcolor{gray}{0.083} & \textcolor{gray}{0.339} & \textcolor{gray}{0.428} & \textcolor{gray}{0.724} & \textcolor{gray}{0.458}\\
+2 & \textcolor{gray}{0.505} & \textcolor{gray}{0.498} & \textcolor{gray}{0.518} & \textcolor{gray}{0.493} & \textcolor{gray}{0.498} & \textcolor{gray}{0.524}\\
 
-3 & \textcolor{gray}{0.505} & \textcolor{gray}{0.492} & \textcolor{gray}{0.507} & \textcolor{gray}{0.491} & \textbf{0.010} & \textcolor{gray}{0.543}\\
+3 & \textcolor{gray}{0.504} & \textcolor{gray}{0.504} & \textcolor{gray}{0.518} & \textcolor{gray}{0.520} & \textcolor{gray}{0.697} & \textcolor{gray}{0.184}\\
 
-4 & \textcolor{gray}{0.485} & \textcolor{gray}{0.464} & \textcolor{gray}{0.504} & \textcolor{gray}{0.493} & \textcolor{gray}{0.485} & \textcolor{gray}{0.503}\\
+4 & \textcolor{gray}{0.496} & \textcolor{gray}{0.494} & \textcolor{gray}{0.492} & \textcolor{gray}{0.505} & \textcolor{gray}{0.499} & \textcolor{gray}{0.492}\\
+
+5 & \textcolor{gray}{0.816} & \textcolor{gray}{0.040} & \textbf{1.000} & \textcolor{gray}{0.967} & \textbf{0.000} & \textbf{0.000}\\
 
 \hline
 \end{tabular}
@@ -383,17 +438,21 @@ The nature of any observed discrepancies is now described and plotted and hypoth
 
 \subsection{Highly statistically significant discrepancies}
 
-\subsubsection{Component 3 : Uncorrelated noise with quadraticly varying standard deviation. This function applies until  392}
+\subsubsection{Component 5 : A linearly increasing function}
 
 
 The following discrepancies between the prior and posterior distributions for this component have been detected.
 
 \begin{itemize}
 
-    \item The qq plot has an unexpectedly large positive deviation from equality ($x = y$). This discrepancy has an estimated $p$-value of \textbf{0.010}.
+    \item The maximum value of the periodogram is unexpectedly high. This discrepancy has an estimated $p$-value of \textbf{0.000}.
+    \item The qq plot has an unexpectedly large positive deviation from equality ($x = y$). This discrepancy has an estimated $p$-value of \textbf{0.000}.
+    \item The qq plot has an unexpectedly large negative deviation from equality ($x = y$). This discrepancy has an estimated $p$-value of \textbf{0.000}.
 \end{itemize}
 
+The large maximum value of the periodogram can indicate periodicity that is not being captured by the model.
 The positive deviation in the qq-plot can indicate heavy positive tails if it occurs at the right of the plot or light negative tails if it occurs as the left.
+The negative deviation in the qq-plot can indicate light positive tails if it occurs at the right of the plot or heavy negative tails if it occurs as the left.
 
 
 \begin{figure}[H]
@@ -402,19 +461,19 @@ The positive deviation in the qq-plot can indicate heavy positive tails if it oc
 \newcommand{\mdrd}{test_1d}
 \newcommand{\mbm}{\hspace{-0.3cm}}
 \begin{tabular}{cc}
-\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_acf_bands_3} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_pxx_bands_3} \\
-\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_qq_bands_3}
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_acf_bands_5} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_pxx_bands_5} \\
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_qq_bands_5}
 \end{tabular}
 \caption{
 ACF (top left), periodogram (top right) and quantile-quantile (bottom left) uncertainty plots.
-The blue line and shading are the pointwise mean and 90\% confidence interval of the plots under the prior distribution for component 3.
+The blue line and shading are the pointwise mean and 90\% confidence interval of the plots under the prior distribution for component 5.
 The green line and green dashed lines are the corresponding quantities under the posterior.}
-\label{fig:check3}
+\label{fig:check5}
 \end{figure}
 
 \subsection{Model checking plots for components without statistically significant discrepancies}
 
-\subsubsection{Component 1 : A quadratic polynomial. This function applies until  392}
+\subsubsection{Component 1 : A cubic polynomial}
 
 No discrepancies between the prior and posterior of this component have been detected
 
@@ -434,7 +493,7 @@ The green line and green dashed lines are the corresponding quantities under the
 \label{fig:check1}
 \end{figure}
 
-\subsubsection{Component 2 : A very smooth monotonically increasing function. This function applies from  392 onwards}
+\subsubsection{Component 2 : A quadratic polynomial}
 
 No discrepancies between the prior and posterior of this component have been detected
 
@@ -454,7 +513,27 @@ The green line and green dashed lines are the corresponding quantities under the
 \label{fig:check2}
 \end{figure}
 
-\subsubsection{Component 4 : Uncorrelated noise with linearly decreasing standard deviation. This function applies until  392}
+\subsubsection{Component 3 : Uncorrelated noise. This function applies until  467}
+
+No discrepancies between the prior and posterior of this component have been detected
+
+\begin{figure}[H]
+\newcommand{\wmgd}{0.5\columnwidth}
+\newcommand{\hmgd}{3.0cm}
+\newcommand{\mdrd}{test_1d}
+\newcommand{\mbm}{\hspace{-0.3cm}}
+\begin{tabular}{cc}
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_acf_bands_3} & \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_pxx_bands_3} \\
+\mbm \includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_qq_bands_3}
+\end{tabular}
+\caption{
+ACF (top left), periodogram (top right) and quantile-quantile (bottom left) uncertainty plots.
+The blue line and shading are the pointwise mean and 90\% confidence interval of the plots under the prior distribution for component 3.
+The green line and green dashed lines are the corresponding quantities under the posterior.}
+\label{fig:check3}
+\end{figure}
+
+\subsubsection{Component 4 : This simple AI is not capable of describing the component whos python representation is RQKernel(dimension=0, lengthscale=9.88367103829, sf=-22.8286542403, alpha=0.124422886868). This function applies from  467 onwards}
 
 No discrepancies between the prior and posterior of this component have been detected
 
@@ -487,11 +566,13 @@ The green line and green dashed lines are the corresponding quantities under the
 
 1 & \textbf{0.000}\\
 
-2 & \textcolor{gray}{0.306}\\
+2 & \textcolor{gray}{0.676}\\
 
-3 & \textbf{0.001}\\
+3 & \textbf{0.008}\\
 
 4 & \textcolor{gray}{0.600}\\
+
+5 & \textcolor{gray}{0.920}\\
 
 \hline
 \end{tabular}
@@ -503,7 +584,7 @@ MMD $p$-values
 \end{center}
 \end{table}
 
-\subsubsection{Component 1 : A quadratic polynomial. This function applies until  392}
+\subsubsection{Component 1 : A cubic polynomial}
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -516,7 +597,7 @@ MMD plot}
 \label{fig:mmd1}
 \end{figure}
 
-\subsubsection{Component 2 : A very smooth monotonically increasing function. This function applies from  392 onwards}
+\subsubsection{Component 2 : A quadratic polynomial}
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -529,7 +610,7 @@ MMD plot}
 \label{fig:mmd2}
 \end{figure}
 
-\subsubsection{Component 3 : Uncorrelated noise with quadraticly varying standard deviation. This function applies until  392}
+\subsubsection{Component 3 : Uncorrelated noise. This function applies until  467}
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -542,7 +623,7 @@ MMD plot}
 \label{fig:mmd3}
 \end{figure}
 
-\subsubsection{Component 4 : Uncorrelated noise with linearly decreasing standard deviation. This function applies until  392}
+\subsubsection{Component 4 : This simple AI is not capable of describing the component whos python representation is RQKernel(dimension=0, lengthscale=9.88367103829, sf=-22.8286542403, alpha=0.124422886868). This function applies from  467 onwards}
 
 \begin{figure}[H]
 \newcommand{\wmgd}{0.5\columnwidth}
@@ -553,6 +634,19 @@ MMD plot}
 \caption{
 MMD plot}
 \label{fig:mmd4}
+\end{figure}
+
+\subsubsection{Component 5 : A linearly increasing function}
+
+\begin{figure}[H]
+\newcommand{\wmgd}{0.5\columnwidth}
+\newcommand{\hmgd}{3.0cm}
+\newcommand{\mdrd}{test_1d}
+\newcommand{\mbm}{\hspace{-0.3cm}}
+\includegraphics[width=\wmgd,height=\hmgd]{\mdrd/test_1d_mmd_5}
+\caption{
+MMD plot}
+\label{fig:mmd5}
 \end{figure}
 
 \end{document}
