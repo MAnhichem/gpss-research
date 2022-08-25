@@ -189,9 +189,9 @@ Determining order of components
 Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
 ['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
 
-Script file (/tmp/tmpVqpfjj.m) contents : ==========================================
+Script file (/tmp/tmpUVwvdg.m) contents : ==========================================
 
-load '/tmp/tmpdCY5py.mat'  % Load the data, it should contain X and y.
+load '/tmp/tmpT1FXm0.mat'  % Load the data, it should contain X and y.
 X = double(X);
 y = double(y);
 
@@ -227,9 +227,9 @@ Plotting decomposition and computing basic stats
 Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
 ['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
 
-Script file (/tmp/tmpOAtK5E.m) contents : ==========================================
+Script file (/tmp/tmpYAy5aU.m) contents : ==========================================
 
-load '/tmp/tmpO4mzVe.mat'  % Load the data, it should contain X and y.
+load '/tmp/tmplmfelj.mat'  % Load the data, it should contain X and y.
 X = double(X);
 y = double(y);
 
@@ -268,9 +268,9 @@ Computing model checking stats
 Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
 ['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
 
-Script file (/tmp/tmpTspPCK.m) contents : ==========================================
+Script file (/tmp/tmpjHBKAV.m) contents : ==========================================
 
-load '/tmp/tmpGA0zlK.mat'  % Load the data, it should contain X and y.
+load '/tmp/tmpZiLX1B.mat'  % Load the data, it should contain X and y.
 X = double(X);
 y = double(y);
 
