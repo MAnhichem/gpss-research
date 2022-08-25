@@ -70,8 +70,11 @@ plt.xlabel('x')
 plt.ylabel('-Cp')
 plt.plot()
 
-# # Save as a .mat file
-# from scipy.io import savemat
-# mdic = {"X": X_t_yfix, "y": Y_t_yfix, "Xtest": X_t_yfix, "ytest": Y_t_yfix}
-# savemat("../data/test_1d.mat", mdic)
+Xtest = np.linspace(242.21, 487.01,100).reshape(100,1)
+ytest = np.linspace(min(Y_t_yfix), max(Y_t_yfix), 100).reshape(100,1)
+
+# Save as a .mat file
+from scipy.io import savemat
+mdic = {"X": X_t_yfix, "y": Y_t_yfix, "Xtest": Xtest, "ytest": ytest}
+savemat("../data/test_1d.mat", mdic)
 
