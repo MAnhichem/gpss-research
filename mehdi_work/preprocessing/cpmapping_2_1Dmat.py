@@ -70,7 +70,7 @@ plt.xlabel('x')
 plt.ylabel('-Cp')
 plt.plot()
 
-Xtest = np.linspace(242.21, 487.01,100).reshape(100,1)
+Xtest = np.linspace(242.21, 487.0,100).reshape(100,1)
 ytest = np.linspace(min(Y_t_yfix), max(Y_t_yfix), 100).reshape(100,1)
 
 # Save as a .mat file
