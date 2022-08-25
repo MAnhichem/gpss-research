@@ -56,9 +56,17 @@ os.chdir(test_path)
 # Remove Mach = 0
 pressure_taps_data = pressure_taps_data.loc[(pressure_taps_data['Mach']>0.1)]
 
+# Remove one outlier
+pressure_taps_data = pressure_taps_data.loc[(pressure_taps_data['Cp']<1.0)]
+
 # Data selection
 pressure_taps_data_yfix = pressure_taps_data.loc[(pressure_taps_data['y']==574.4)]
-X_t_yfix = pressure_taps_data_yfix['x'].values.reshape(-1,1)
+X_t_yfix = pressure_taps_data_yfix[['alpha', 'Mach', 'x']]
 Y_t_yfix = pressure_taps_data_yfix['Cp'].values.reshape(-1,1)
 print(X_t_yfix.shape, Y_t_yfix.shape)
+
+# # Save as a .mat file
+# from scipy.io import savemat
+# mdic = {"X": X_t_yfix, "y": Y_t_yfix}
+# savemat("../data/test_3d.mat", mdic)
 
