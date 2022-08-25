@@ -70,8 +70,10 @@ plt.xlabel('x')
 plt.ylabel('-Cp')
 plt.plot()
 
-Xtest = np.linspace(242.21, 487.0,100).reshape(100,1)
-ytest = np.linspace(min(Y_t_yfix), max(Y_t_yfix), 100).reshape(100,1)
+# Xtest = np.linspace(242.21, 487.0,100).reshape(100,1)
+# ytest = np.linspace(min(Y_t_yfix), max(Y_t_yfix), 100).reshape(100,1)
+Xtest = X_t_yfix[1:-1]
+ytest = Y_t_yfix[1:-1]
 
 # Save as a .mat file
 from scipy.io import savemat
