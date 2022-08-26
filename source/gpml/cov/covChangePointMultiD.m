@@ -11,9 +11,7 @@ function K = covChangePointMultiD(cov, hyp, x, z, i)
 %
 % Copyright (c) by James Robert Lloyd, 2013-11-21.
 
-if ~numel(cov)==3, error('Change point uses a dimension and two covariances.'), end
-dim = cov{1};
-cov = {cov{2},cov{3}};
+if ~numel(cov)==2, error('Change point uses two covariances.'), end
 for ii = 1:numel(cov)                        % iterate over covariance functions
   f = cov(ii); if iscell(f{:}), f = f{:}; end   % expand cell array if necessary
   j(ii) = cellstr(feval(f{:}));                          % collect number hypers
@@ -23,7 +21,7 @@ if nargin<3                                        % report number of parameters
   K = ['2' '+' char(j(1))]; for ii=2:length(cov), K = [K, '+', char(j(ii))]; end, return
 end
 if nargin<4, z = []; end                                   % make sure, z exists
-original_z = z;
+[n,D] = size(x);
 xeqz = numel(z)==0; dg = strcmp(z,'diag') && numel(z)>0;        % determine mode
 if xeqz
     z = x;
@@ -35,15 +33,13 @@ for ii = 1:length(cov), v = [v repmat(ii, 1, eval(char(j(ii))))]; end
 location = hyp(1);
 steepness = exp(hyp(2));
 
-tx = tanh((x(:,dim)-location)*steepness);
-ax = 0.5 + 0.5 * tx;
+ax = 1 ./ (1 + exp(-(x-location)*steepness));
 if ~dg
-    ax = repmat(ax, 1, length(z(:,dim)));
+    ax = repmat(ax, 1, length(z));
 end
 if ~dg
-    tz = tanh((z(:,dim)-location)*steepness);
-    az = 0.5 + 0.5 * tz;
-    az = repmat(az', length(x(:,dim)), 1);
+    az = 1 ./ (1 + exp(-(z-location)*steepness));
+    az = repmat(az', length(x), 1);
 else
     az = ax;
 end
@@ -56,46 +52,54 @@ if nargin<5                                                        % covariances
   for ii = 1:length(cov)                              % iteration over functions
     f = cov(ii); if iscell(f{:}), f = f{:}; end % expand cell array if necessary
     if ii == 1
-        K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* az;
+        K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* az;
     else
-        K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* (1-az);
+        K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* (1-az);
     end
   end
 else                                                               % derivatives
   if i==1
-    dx = -0.5*(1-tx.^2)*steepness;
-    dz = -0.5*(1-tz.^2)*steepness;
-    dx = repmat(dx, 1, length(z(:,dim)));
-    dz = repmat(dz', length(x(:,dim)), 1);
+    dx = -steepness * repmat(exp(+(x-location)*steepness), 1, length(z)) .* ...
+         (1 + repmat(exp(+(x-location)*steepness), 1, length(z))).^(-2);
+    dx(isnan(dx)) = 0; % infty * 0 = 0 for this function
+    dx(isinf(dx)) = 0; % infty * eps = 0 for this function
+    dz = -steepness * repmat(exp(+(z-location)*steepness)', length(x), 1) .* ...
+         (1 + repmat(exp(+(z-location)*steepness)', length(x), 1)).^(-2);
+    dz(isnan(dz)) = 0; % infty * 0 = 0 for this function
+    dz(isinf(dz)) = 0; % infty * eps = 0 for this function
     dx = -dx; % Switching the order of base kernels to match intuition 
     dz = -dz;
     K = 0;
     for ii = 1:length(cov)                              % iteration over functions
         f = cov(ii); if iscell(f{:}), f = f{:}; end % expand cell array if necessary
         if ii == 1
-            K = K + dx .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* az;
-            K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* dz;
+            K = K + dx .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* az;
+            K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* dz;
         else
-            K = K + -dx .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* (1-az);
-            K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* (-dz);
+            K = K + -dx .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* (1-az);
+            K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* (-dz);
         end
     end
   elseif i==2
-    dx = +0.5*(1-tx.^2).*(x(:,dim)-location).*steepness;
-    dz = +0.5*(1-tz.^2).*(z(:,dim)-location).*steepness;
-    dx = repmat(dx, 1, length(z(:,dim)));
-    dz = repmat(dz', length(x(:,dim)), 1);
+    dx = steepness * repmat(exp(+(x-location)*steepness).*(x-location), 1, length(z)) .* ...
+         (1 + repmat(exp(+(x-location)*steepness), 1, length(z))).^(-2);
+    dx(isnan(dx)) = 0; % infty * 0 = 0 for this function
+    dx(isinf(dx)) = 0; % infty * eps = 0 for this function
+    dz = steepness * repmat((exp(+(z-location)*steepness).*(z-location))', length(x), 1) .* ...
+         (1 + repmat(exp(+(z-location)*steepness)', length(x), 1)).^(-2);
+    dz(isnan(dz)) = 0; % infty * 0 = 0 for this function
+    dz(isinf(dz)) = 0; % infty * eps = 0 for this function
     dx = -dx; % Switching the order of base kernels to match intuition 
     dz = -dz;
     K = 0;
     for ii = 1:length(cov)                              % iteration over functions
         f = cov(ii); if iscell(f{:}), f = f{:}; end % expand cell array if necessary
         if ii == 1
-            K = K + dx .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* az;
-            K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* dz;
+            K = K + dx .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* az;
+            K = K + ax .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* dz;
         else
-            K = K + -dx .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* (1-az);
-            K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, original_z) .* (-dz);
+            K = K + -dx .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* (1-az);
+            K = K + (1-ax) .* feval(f{:}, hyp([false false (v==ii)]), x, z) .* (-dz);
         end
     end
   elseif i<=length(v)+2
@@ -104,7 +108,7 @@ else                                                               % derivatives
     j = sum(v(1:i)==vi);                    % which parameter in that covariance
     f  = cov(vi);
     if iscell(f{:}), f = f{:}; end         % dereference cell array if necessary
-    K = feval(f{:}, hyp([false false (v==vi)]), x, original_z, j);                   % compute derivative
+    K = feval(f{:}, hyp([false false (v==vi)]), x, z, j);                   % compute derivative
     if vi == 1
         K = ax .* K .* az;
     elseif vi ==2
