@@ -65,8 +65,8 @@ X_t_yfix = pressure_taps_data_yfix[['alpha', 'Mach', 'x']]
 Y_t_yfix = pressure_taps_data_yfix['Cp'].values.reshape(-1,1)
 print(X_t_yfix.shape, Y_t_yfix.shape)
 
-# # Save as a .mat file
-# from scipy.io import savemat
-# mdic = {"X": X_t_yfix, "y": Y_t_yfix}
-# savemat("../data/test_3d.mat", mdic)
+# Save as a .mat file
+from scipy.io import savemat
+mdic = {"X": X_t_yfix, "y": Y_t_yfix}
+savemat("../data/3d/data_3d_y574_4.mat", mdic)
 
