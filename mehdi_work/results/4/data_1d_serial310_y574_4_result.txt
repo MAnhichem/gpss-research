@@ -1,9 +1,9 @@
 Experiment all_results for
- datafile = ./data/test_1d.mat
+ datafile = ./data/1d/data_1d_serial310_y574_4.mat
 
  Running experiment:
 description = Test with 1D data, inspired by Duvenaud example,
-data_dir = ./data/,
+data_dir = ./data/1d/,
 max_depth = 10,
 random_order = False,
 k = 1,
@@ -16,7 +16,7 @@ max_jobs = 300,
 verbose = False,
 make_predictions = True,
 skip_complete = False,
-results_dir = ./results/2/,
+results_dir = ./results/4/,
 iters = 250,
 base_kernels = SE,RQ,Lin,Const,
 additive_form = False,

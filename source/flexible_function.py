@@ -1778,7 +1778,8 @@ class ChangePointKernel(Kernel):
     def get_gpml_expression(self, dimensions):
         #return '{@covChangePointMultiD, %s, {%s}}' % (self.dimension + 1, ', '.join(o.get_gpml_expression(dimensions=dimensions) for o in self.operands))
         return '{@covChangePointMultiD, {%s, %s}}' % (self.dimension + 1, ', '.join(o.get_gpml_expression(dimensions=dimensions) for o in self.operands))
-
+        
+    
     def multiply_by_const(self, sf):
         for o in self.operands:
             o.multiply_by_const(sf=sf)                    

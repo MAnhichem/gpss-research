@@ -4,12 +4,12 @@
 # Use the current environment for this job.
 #SBATCH --export=ALL
 # Define job name
-#SBATCH -J gpss_exp2
+#SBATCH -J gpss_exp3
 # Define a standard output file. When the job is running, %u will be replaced by user name,
 # %N will be replaced by the name of the node that runs the batch script, and %j will be replaced by job id number.
-#SBATCH -o gpss_exp2.%u.%N.%j.out
+#SBATCH -o ./output_files/gpss_exp3.%u.%N.%j.out
 # Define a standard error file
-#SBATCH -e gpss_exp2.%u.%N.%j.err
+#SBATCH -e ./output_files/gpss_exp3.%u.%N.%j.err
 # Request the partition
 #SBATCH -p nodes
 # Request the number of nodes
@@ -17,7 +17,7 @@
 # Request the number of cores
 #SBATCH -n 1
 # Specify time limit in format a-bb:cc:dd, where a is days, b is hours, c is minutes, and d is seconds.
-#SBATCH -t 0-00:15:00
+#SBATCH -t 0-02:00:00
 # Request the memory on the node or request memory per core
 # PLEASE don't set the memory option as we should use the default memory which is based on the number of cores 
 ##SBATCH --mem-per-cpu=9000M
@@ -68,10 +68,10 @@ echo "Requested CPUs per task      : $SLURM_CPUS_PER_TASK"
 echo "Scheduling priority          : $SLURM_PRIO_PROCESS"
 
 echo   
-echo "Running GPSS - Experiment 2"
+echo "Running GPSS - Experiment 3"
 echo   
 
-python run_experiment.py &> ./results/log.run_exp2
+python run_experiment.py &> ./results/log.run_exp3
 
 # the ret flag is the return code, so you can spot easily if your code failed.
 ret=$?
