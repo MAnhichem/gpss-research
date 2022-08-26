@@ -1,120 +1,0 @@
-11%22%33%44%55%66%77%88%100%100%
-4%9%14%19%23%28%33%38%42%47%52%57%61%66%71%76%80%85%90%95%100%100%
-2%4%7%9%12%14%17%19%21%24%26%29%31%34%36%39%41%43%46%48%51%53%56%58%60%63%65%68%70%73%75%78%80%82%85%87%90%92%95%97%100%100%
-2%4%7%9%12%14%17%19%21%24%26%29%31%34%36%39%41%43%46%48%51%53%56%58%60%63%65%68%70%73%75%78%80%82%85%87%90%92%95%97%100%100%
-Running experiment:
-description = Test with 1D data for playing,
-data_dir = ./data/,
-max_depth = 4,
-random_order = False,
-k = 1,
-debug = False,
-local_computation = True,
-n_rand = 1,
-sd = 2,
-jitter_sd = 0.1,
-max_jobs = 300,
-verbose = False,
-make_predictions = False,
-skip_complete = False,
-results_dir = ./results/,
-iters = 100,
-base_kernels = SE,Per,Lin,Const,
-additive_form = False,
-mean = ff.MeanZero(),
-kernel = ff.NoiseKernel(),
-lik = ff.LikGauss(sf=-np.Inf),
-verbose_results = False,
-random_seed = 1,
-period_heuristic = 5,
-max_period_heuristic = 5,
-subset = True,
-subset_size = 250,
-full_iters = 10,
-bundle_size = 5,
-search_operators = [('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}), ('A', 'B', {'A': 'kernel', 'B': 'base'}), ('A', ('None',), {'A': 'kernel'}), ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd': 'dimension'})],
-score = pl2,
-period_heuristic_type = min,
-stopping_criteria = [],
-improvement_tolerance = 0.1,
-
-Experiment test_1d
-Output to: ./results/test_1d_result.txt
-
-
-Starting search with this model:
-
-GPModel(mean=MZ, kernel=WN(sf=None), likelihood=GS(sf=-inf))
-
-
-All new results
-
-NLL=20.7 BIC=52.7 AIC=49.3 PL2=1.334 GPModel(mean=MZ, kernel=CP(dim=0, loc=276.0, steep=1.1, WN(sf=-0.2), WN(sf=-0.2)), likelihood=GS(sf=-inf))
-NLL=11.9 BIC=29.5 AIC=27.9 PL2=0.760 GPModel(mean=MZ, kernel=SE(dim=0, ell=2.5, sf=-0.4), likelihood=GS(sf=-inf))
-NLL=9.9 BIC=25.4 AIC=23.7 PL2=0.639 GPModel(mean=MZ, kernel=( C(sf=-0.3) + WN(sf=-1.0) ) , likelihood=GS(sf=-inf))
-NLL=5.3 BIC=19.1 AIC=16.6 PL2=0.400 GPModel(mean=MZ, kernel=( Lin(dim=0, loc=665.0, sf=-6.1) + WN(sf=-1.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-
-All new results
-
-NLL=355230998631.4 BIC=710461997271.3 AIC=710461997268.8 PL2=20895941096.052 GPModel(mean=MZ, kernel=Per(dim=0, ell=0.5, per=3.3, sf=-1.3), likelihood=GS(sf=-inf))
-NLL=20.7 BIC=44.2 AIC=43.3 PL2=1.246 GPModel(mean=MZ, kernel=WN(sf=-0.2), likelihood=GS(sf=-inf))
-NLL=9.9 BIC=25.4 AIC=23.7 PL2=0.639 GPModel(mean=MZ, kernel=( C(sf=-0.3) + WN(sf=-1.0) ) , likelihood=GS(sf=-inf))
-NLL=4.6 BIC=17.6 AIC=15.1 PL2=0.356 GPModel(mean=MZ, kernel=( Lin(dim=0, loc=546.5, sf=-5.6) + WN(sf=-1.3) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=4.0 AIC=-0.1 PL2=-0.151 GPModel(mean=MZ, kernel=( Lin(dim=0, loc=403.5, sf=-8.6) + SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=4.0 AIC=-0.1 PL2=-0.151 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + SE(dim=0, ell=6.0, sf=-5.5) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=1.2 AIC=-2.1 PL2=-0.180 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + C(sf=-3.3) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=3.7 AIC=-1.3 PL2=-0.214 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.6, WN(sf=-2.1), WN(sf=-6.6)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-
-All new results
-
-NLL=16.2 BIC=49.4 AIC=44.4 PL2=1.128 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.0, steep=0.1, WN(sf=-0.1), WN(sf=-2.9)) + Lin(dim=0, loc=293.2, sf=-11.5) ) , likelihood=GS(sf=-inf))
-NLL=16.2 BIC=46.5 AIC=42.4 PL2=1.099 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=0.1, WN(sf=-0.1), WN(sf=-2.9)) + C(sf=-6.9) ) , likelihood=GS(sf=-inf))
-NLL=16.2 BIC=43.7 AIC=40.3 PL2=1.069 GPModel(mean=MZ, kernel=CP(dim=0, loc=463.4, steep=-0.7, WN(sf=-0.1), WN(sf=-2.9)), likelihood=GS(sf=-inf))
-NLL=-7.5 BIC=19.0 AIC=9.0 PL2=-0.088 GPModel(mean=MZ, kernel=( CP(dim=0, loc=357.1, steep=-1.9, CP(dim=0, loc=463.2, steep=-0.7, WN(sf=-2.4), WN(sf=-6.5)), CP(dim=0, loc=463.3, steep=-0.5, WN(sf=-1.9), WN(sf=-6.9))) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=12.2 AIC=4.7 PL2=-0.126 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.4, WN(sf=-2.1), CP(dim=0, loc=437.7, steep=-1.1, WN(sf=-6.5), WN(sf=-8.0))) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.4, steep=-0.5, ( Lin(dim=0, loc=587.6, sf=-9.8) + WN(sf=-2.1) ) , WN(sf=-6.7)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.6, WN(sf=-2.1), ( Lin(dim=0, loc=251.0, sf=-11.3) + WN(sf=-7.1) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.6, WN(sf=-2.1), ( SE(dim=0, ell=6.5, sf=-7.0) + WN(sf=-7.1) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=-0.5, WN(sf=-2.1), WN(sf=-8.5)) + Lin(dim=0, loc=345.5, sf=-10.0) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.4, WN(sf=-2.1), WN(sf=-8.2)) + SE(dim=0, ell=4.7, sf=-0.5) + SE(dim=0, ell=9.0, sf=-5.0) ) , likelihood=GS(sf=-inf))
-NLL=-6.7 BIC=9.2 AIC=2.5 PL2=-0.161 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-1.1, ( SE(dim=0, ell=2.9, sf=-2.8) + WN(sf=-2.2) ) , WN(sf=-7.1)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=1.2 AIC=-2.1 PL2=-0.181 GPModel(mean=MZ, kernel=( SE(dim=0, ell=-0.1, sf=-2.2) + SE(dim=0, ell=4.7, sf=-0.4) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.184 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.4, steep=-0.8, ( C(sf=-5.1) + WN(sf=-2.1) ) , WN(sf=-6.8)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.4, steep=-0.7, WN(sf=-2.1), Lin(dim=0, loc=727.4, sf=-11.1)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.6, WN(sf=-2.1), SE(dim=0, ell=9.5, sf=-5.9)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.0, steep=-0.2, WN(sf=-2.1), ( C(sf=-7.0) + WN(sf=-8.0) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.4, WN(sf=-2.1), WN(sf=-8.4)) + SE(dim=0, ell=4.7, sf=-0.5) + C(sf=-4.9) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.4, SE(dim=0, ell=-1.3, sf=-2.1), WN(sf=-8.3)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-7.7 BIC=10.1 AIC=2.6 PL2=-0.189 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=-0.2, CP(dim=0, loc=245.1, steep=0.1, WN(sf=-1.3), WN(sf=-2.3)), WN(sf=-7.0)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=3.7 AIC=-1.3 PL2=-0.214 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.6, WN(sf=-2.1), C(sf=-5.4)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=3.7 AIC=-1.3 PL2=-0.214 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.5, WN(sf=-2.1), WN(sf=-7.6)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-
-All new results
-
-NLL=49098465521072.0 BIC=98196931042149.8 AIC=98196931042148.1 PL2=2888145030651.355 GPModel(mean=MZ, kernel=SE(dim=0, ell=4.1, sf=-2.4), likelihood=GS(sf=-inf))
-NLL=16.2 BIC=49.4 AIC=44.4 PL2=1.128 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.7, WN(sf=-0.1), WN(sf=-2.9)) + Lin(dim=0, loc=9.4, sf=-12.1) ) , likelihood=GS(sf=-inf))
-NLL=16.2 BIC=49.3 AIC=44.3 PL2=1.128 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.8, WN(sf=-0.1), WN(sf=-2.9)) + SE(dim=0, ell=6.2, sf=-9.6) ) , likelihood=GS(sf=-inf))
-NLL=16.2 BIC=43.7 AIC=40.3 PL2=1.069 GPModel(mean=MZ, kernel=CP(dim=0, loc=463.3, steep=-0.7, WN(sf=-0.1), WN(sc]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>f=-2.9)), likelihood=GS(sf=-inf))
-NLL=6.9 BIC=28.0 AIC=23.8 PL2=0.553 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.8, steep=-1.5, WN(sf=-1.3), WN(sf=-0.1)) + C(sf=-0.2) ) , likelihood=GS(sf=-inf))
-NLL=-7.5 BIC=19.0 AIC=9.0 PL2=-0.088 GPModel(mean=MZ, kernel=( CP(dim=0, loc=357.3, steep=-1.9, CP(dim=0, loc=463.3, steep=-0.4, WN(sf=-2.4), WN(sf=-7.7)), CP(dim=0, loc=463.1, steep=-0.5, WN(sf=-1.9), WN(sf=-7.8))) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.5, ( SE(dim=0, ell=5.2, sf=-5.3) + WN(sf=-2.1) ) , WN(sf=-7.6)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.4, steep=-0.4, WN(sf=-2.1), ( SE(dim=0, ell=5.2, sf=-5.9) + WN(sf=-7.8) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=-0.6, ( Lin(dim=0, loc=211.2, sf=-11.4) + WN(sf=-2.1) ) , WN(sf=-7.7)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.4, WN(sf=-2.1), WN(sf=-7.8)) + SE(dim=0, ell=4.7, sf=-0.5) + SE(dim=0, ell=7.3, sf=-6.8) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=-0.1, WN(sf=-2.1), ( Lin(dim=0, loc=275.6, sf=-14.5) + WN(sf=-8.2) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=9.4 AIC=2.7 PL2=-0.155 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=0.0, WN(sf=-2.1), WN(sf=-11.4)) + Lin(dim=0, loc=685.7, sf=-12.2) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.184 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.7, WN(sf=-2.1), SE(dim=0, ell=5.0, sf=-5.1)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.184 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.6, WN(sf=-2.1), ( C(sf=-5.3) + WN(sf=-7.5) ) ) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.1, steep=-0.5, WN(sf=-2.1), WN(sf=-7.5)) + SE(dim=0, ell=4.7, sf=-0.5) + C(sf=-3.6) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.5, steep=-0.6, WN(sf=-2.1), Lin(dim=0, loc=385.1, sf=-9.9)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.6, ( C(sf=-7.2) + WN(sf=-2.1) ) , WN(sf=-7.8)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=6.6 AIC=0.7 PL2=-0.185 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.2, steep=-0.3, SE(dim=0, ell=-0.7, sf=-2.1), WN(sf=-9.1)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-5.1 BIC=-1.6 AIC=-4.1 PL2=-0.210 GPModel(mean=MZ, kernel=( SE(dim=0, ell=4.7, sf=-0.4) + WN(sf=-2.2) ) , likelihood=GS(sf=-inf))
-NLL=-6.6 BIC=3.7 AIC=-1.3 PL2=-0.214 GPModel(mean=MZ, kernel=( CP(dim=0, loc=463.3, steep=-0.4, WN(sf=-2.1), C(sf=-5.3)) + SE(dim=0, ell=4.7, sf=-0.5) ) , likelihood=GS(sf=-inf))
-NLL=-10.3 BIC=7.7 AIC=-0.6 PL2=-0.311 GPModel(mean=MZ, kernel=( CP(dim=0, loc=391.9, steep=-0.8, SE(dim=0, ell=5.2, sf=-0.3), SE(dim=0, ell=4.3, sf=-1.3)) + CP(dim=0, loc=463.3, steep=-0.4, WN(sf=-2.5), WN(sf=-7.6)) ) , likelihood=GS(sf=-inf))
-Finished file test_1d

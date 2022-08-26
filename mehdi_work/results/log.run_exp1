@@ -16,7 +16,7 @@ max_jobs = 300,
 verbose = False,
 make_predictions = True,
 skip_complete = False,
-results_dir = ./results/,
+results_dir = ./results/1/,
 iters = 250,
 base_kernels = SE,RQ,Lin,Const,
 additive_form = False,
@@ -38,7 +38,7 @@ stopping_criteria = [],
 improvement_tolerance = 0.1,
 
 Experiment test_1d
-Output to: ./results/test_1d_result.txt
+Output to: ./results/1/test_1d_result.txt
 
 
 Starting search with this model:
@@ -128,8 +128,8 @@ NLL=-17.1 BIC=-8.7 AIC=-16.2 PL2=-0.741 GPModel(mean=MZ, kernel=CP(dim=0, loc=39
 NLL=-17.1 BIC=-8.7 AIC=-16.2 PL2=-0.741 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.7, steep=-0.3, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( ( Lin(dim=0, loc=628.0, sf=-4.7) x SE(dim=0, ell=5.0, sf=-1.3) )  + WN(sf=-30.8) ) ), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.8, steep=-0.3, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , RQ(dim=0, ell=4.8, sf=-0.7, alpha=6.0)), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.7, steep=-0.4, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + C(sf=-3.9) ) ), likelihood=GS(sf=-inf))
-NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=391.0, steep=-0.2, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + WN(sf=-11.4)1%3%5%7%9%11%13%15%17%19%21%23%25%26%28%30%32%34%36%38%40%42%44%46%48%50%51%53%55%57%59%61%63%65%67%69%71%73%75%76%78%80%82%84%86%88%90%92%94%96%98%100%100%
- ) ), likelihood=GS(sf=-inf))
+NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=391.0, steep=-0.2, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + WN(sf=-11%3%5%7%9%11%13%15%17%19%21%23%25%26%28%30%32%34%36%38%40%42%44%46%48%50%51%53%55%57%59%61%63%65%67%69%71%73%75%76%78%80%82%84%86%88%90%92%94%96%98%100%100%
+1.4) ) ), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.7, steep=-0.4, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + WN(sf=-11.7) ) ), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.8, steep=-0.3, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + WN(sf=-11.8) ) ), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.7, steep=-0.4, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + WN(sf=-11.9) ) ), likelihood=GS(sf=-inf))
@@ -168,8 +168,8 @@ NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=39
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.9, steep=-0.3, ( SE(dim=0, ell=5.3, sf=-0.3) + WN(sf=-2.4) ) , ( SE(dim=0, ell=4.8, sf=-0.7) + C(sf=-5.4) ) ), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=390.9, steep=-0.3, ( SE(dim=0, ell=5.3, sf=-0.3) + C(sf=-6.1) + WN(sf=-2.4) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=( CP(dim=0, loc=390.9, steep=-0.3, ( SE(dim=0, ell=5.7, sf=0.3) + WN(sf=-1.8) ) , SE(dim=0, ell=4.9, sf=-0.2)) x SE(dim=0, ell=5.6, sf=-0.6) ) , likelihood=GS(sf=-inf))
-NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=391.0, steep=-0.2, ( ( SE(dim=0, ell=5.3, sf=0.7) + WN(sf=-1.4) )  x SE(d100%100%
-c]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>im=0, ell=7.0, sf=-1.0) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
+NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=391.0, steep=-0.2, ( ( SE(dim=0, ell=5.3, sf=0.7) + WN(sf=-1.4) )  x 100%100%
+c]104[!p[?3;4l[4l>c]104[!p[?3;4l[4l>SE(dim=0, ell=7.0, sf=-1.0) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.711 GPModel(mean=MZ, kernel=CP(dim=0, loc=391.1, steep=-0.2, ( ( Lin(dim=0, loc=851.9, sf=-5.8) x SE(dim=0, ell=5.4, sf=-0.6) )  + WN(sf=-2.4) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
 NLL=-16.1 BIC=-9.5 AIC=-16.2 PL2=-0.712 GPModel(mean=MZ, kernel=( CP(dim=0, loc=390.9, steep=-0.3, ( SE(dim=0, ell=5.2, sf=-0.4) + WN(sf=-2.4) ) , SE(dim=0, ell=4.8, sf=-0.8)) + C(sf=-1.5) ) , likelihood=GS(sf=-inf))
 NLL=-17.7 BIC=-9.9 AIC=-17.4 PL2=-0.778 GPModel(mean=MZ, kernel=( CP(dim=0, loc=391.0, steep=-0.4, ( SE(dim=0, ell=8.1, sf=-1.0) + WN(sf=-2.4) ) , SE(dim=0, ell=5.2, sf=-4.6)) + SE(dim=0, ell=4.8, sf=-0.8) ) , likelihood=GS(sf=-inf))
@@ -184,129 +184,3 @@ NLL=-17.8 BIC=-13.0 AIC=-19.7 PL2=-0.814 GPModel(mean=MZ, kernel=CP(dim=0, loc=3
 Making predictions
 
 Finished file test_1d
-GPModel(mean=MZ, kernel=CP(dim=0, loc=391.0, steep=-0.3, ( ( SE(dim=0, ell=5.9, sf=0.4) + WN(sf=-2.6) )  x Lin(dim=0, loc=573.2, sf=-5.6) ) , SE(dim=0, ell=4.8, sf=-0.7)), likelihood=GS(sf=-inf))
-Determining order of components
-Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
-['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
-
-Script file (/tmp/tmp1FlmL4.m) contents : ==========================================
-
-load '/tmp/tmpBxa8rH.mat'  % Load the data, it should contain X and y.
-X = double(X);
-y = double(y);
-
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/matlab'));
-
-mean_family = {@meanZero};
-mean_params = [  ];
-kernel_family = {@covChangePointMultiD, {1, {@covProd, {{@covSum, {{@covSEiso}, {@covNoise}}}, {@covLinear}}}, {@covSEiso}}};
-kernel_params = [ 390.98370701040795 -0.2579241170670047 5.8641867051634575 0.4374676268540611 -2.5598236272428463 -5.631675143180585 573.195494602144 4.830322993322204 -0.7466171085522487 ];
-lik_family = {@likDelta};
-lik_params = [  ];
-kernel_family_list = { {@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covNoise}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covSEiso}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covSEiso}}} };
-kernel_params_list = { [ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 -2.5598236272428463 ],[ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 5.8641867051634575 0.4374676268540611 ],[ 390.98370701040795 -0.2579241170670047 4.830322993322204 -0.7466171085522487 ] };
-figname = '/users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d';
-
-order_by_mae_reduction(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname)
-exit();
-
-Std out : ==========================================
-
-                            < M A T L A B (R) >
-                  Copyright 1984-2021 The MathWorks, Inc.
-             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
-                                July 1, 2021
-
- 
-To get started, type doc.
-For product information, visit www.mathworks.com.
- 
->> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
-Plotting decomposition and computing basic stats
-Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
-['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
-
-Script file (/tmp/tmpR0bKun.m) contents : ==========================================
-
-load '/tmp/tmprOEyTP.mat'  % Load the data, it should contain X and y.
-X = double(X);
-y = double(y);
-
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/matlab'));
-
-mean_family = {@meanZero};
-mean_params = [  ];
-kernel_family = {@covChangePointMultiD, {1, {@covProd, {{@covSum, {{@covSEiso}, {@covNoise}}}, {@covLinear}}}, {@covSEiso}}};
-kernel_params = [ 390.98370701040795 -0.2579241170670047 5.8641867051634575 0.4374676268540611 -2.5598236272428463 -5.631675143180585 573.195494602144 4.830322993322204 -0.7466171085522487 ];
-lik_family = {@likDelta};
-lik_params = [  ];
-kernel_family_list = { {@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covNoise}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covSEiso}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covSEiso}}} };
-kernel_params_list = { [ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 -2.5598236272428463 ],[ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 5.8641867051634575 0.4374676268540611 ],[ 390.98370701040795 -0.2579241170670047 4.830322993322204 -0.7466171085522487 ] };
-envelope_family_list = { {@covChangePointMultiD, {1, {@covProd, {{@covConst}, {@covConst}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covProd, {{@covConst}, {@covConst}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covConst}}} };
-envelope_params_list = { [ 390.98370701040795 -0.2579241170670047 0.0 0.0 ],[ 390.98370701040795 -0.2579241170670047 0.0 0.0 ],[ 390.98370701040795 -0.2579241170670047 0.0 ] };
-figname = '/users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d';
-idx = [ 2 3 1 ];
-
-component_stats_and_plots(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, envelope_family_list, envelope_params_list, lik_family, lik_params, figname, idx)
-exit();
-
-Std out : ==========================================
-
-                            < M A T L A B (R) >
-                  Copyright 1984-2021 The MathWorks, Inc.
-             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
-                                July 1, 2021
-
- 
-To get started, type doc.
-For product information, visit www.mathworks.com.
- 
->> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
-Computing model checking stats
-Saving to: /users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d
-['/opt/apps/MATLAB/R2021a/bin/matlab', '-nosplash', '', '-nodisplay']
-
-Script file (/tmp/tmpvDNphP.m) contents : ==========================================
-
-load '/tmp/tmpt98NYa.mat'  % Load the data, it should contain X and y.
-X = double(X);
-y = double(y);
-
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/gpml'));
-addpath(genpath('/users/anhichem/sharedscratch/programming/gpss-research/source/matlab'));
-
-mean_family = {@meanZero};
-mean_params = [  ];
-kernel_family = {@covChangePointMultiD, {1, {@covProd, {{@covSum, {{@covSEiso}, {@covNoise}}}, {@covLinear}}}, {@covSEiso}}};
-kernel_params = [ 390.98370701040795 -0.2579241170670047 5.8641867051634575 0.4374676268540611 -2.5598236272428463 -5.631675143180585 573.195494602144 4.830322993322204 -0.7466171085522487 ];
-lik_family = {@likDelta};
-lik_params = [  ];
-kernel_family_list = { {@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covNoise}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covProd, {{@covLinear}, {@covSEiso}}}, {@covZero}}},{@covChangePointMultiD, {1, {@covZero}, {@covSEiso}}} };
-kernel_params_list = { [ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 -2.5598236272428463 ],[ 390.98370701040795 -0.2579241170670047 -5.631675143180585 573.195494602144 5.8641867051634575 0.4374676268540611 ],[ 390.98370701040795 -0.2579241170670047 4.830322993322204 -0.7466171085522487 ] };
-figname = '/users/anhichem/sharedscratch/programming/gpss-research/mehdi_work/results/figures/test_1d/test_1d';
-idx = [ 2 3 1 ];
-plot = true;
-
-checking_stats(X, y, mean_family, mean_params, kernel_family, kernel_params, kernel_family_list, kernel_params_list, lik_family, lik_params, figname, idx, plot)
-exit();
-
-Std out : ==========================================
-
-                            < M A T L A B (R) >
-                  Copyright 1984-2021 The MathWorks, Inc.
-             R2021a Update 4 (9.10.0.1710957) 64-bit (glnxa64)
-                                July 1, 2021
-
- 
-To get started, type doc.
-For product information, visit www.mathworks.com.
- 
->> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> >> 
-Traceback (most recent call last):
-  File "run_experiment.py", line 31, in <module>
-    rescale=False, data_folder='./data/', skip_kernel_evaluation=False, all_depths=False)
-  File "/users/anhichem/sharedscratch/programming/gpss-research/source/postprocessing.py", line 190, in make_all_1d_figures
-    (summary, sentences, extrap_sentences) = translation.translate_additive_component(kernel_components[component_order[i-1]], X, evaluation_data['monotonic'][i-1], evaluation_data['gradients'][i-1], unit)
-IndexError: index 3 is out of bounds for axis 0 with size 3
