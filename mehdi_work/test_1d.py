@@ -12,7 +12,7 @@ Experiment(description='Test with 1D data, inspired by Duvenaud example',
            verbose=False,
            make_predictions=True,
            skip_complete=False,
-           results_dir='./results/2/',
+           results_dir='./results/5/',
            iters=250,
            base_kernels='SE,RQ,Lin,Const',
            random_seed=1,
@@ -29,5 +29,5 @@ Experiment(description='Test with 1D data, inspired by Duvenaud example',
            score='bic',
            search_operators=[('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}),
                              ('A', 'B', {'A': 'kernel', 'B': 'base'}),
-                             ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'}),
-                             ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
+                             ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'})])
+                            #  ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
