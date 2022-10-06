@@ -29,5 +29,5 @@ Experiment(description='Test with 1D data, inspired by Duvenaud example',
            score='bic',
            search_operators=[('A', ('+', 'A', 'B'), {'A': 'kernel', 'B': 'base'}),
                              ('A', 'B', {'A': 'kernel', 'B': 'base'}),
-                             ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'})])
-                            #  ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
+                             ('A', ('*', 'A', 'B'), {'A': 'kernel', 'B': 'base-not-const'}),
+                             ('A', ('CP', 'd', 'A'), {'A': 'kernel', 'd' : 'dimension'})])
